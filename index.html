@@ -1,1 +1,103 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binit Maharjan</title>
+    <style>
+        :root {
+            --background: #EAE1DE;
+            --text: #277025;
+            --accent1: #b7ad6a;
+            --accent2: #f4e2d7;
+        }
+        body{
+            background-color: var(--background);
+            color: var(--text);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-buttons button {
+            background-color: var(--accent2);
+            color: var(--accent1);
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .tab-buttons button:hover {
+            background-color: var(--background);
+            color: var(--accent1);
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-buttons">
+        <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('projects')">Projects</button>
+        <button onclick="showPage('bookshelf')">Bookshelf</button>
+        <button onclick="showPage('contact')">Contact</button>
+    </div>
+
+    <div id="about" class="tab-content">
+        <h2>About</h2>
+        <img src="me.jpeg" alt="me" width="150"></img>
+        <p>I am a student at George Mason University. Majoring in Computer Science and Economics. I enjoy learning about how things around me operate, from computers to game theory. I aspire to learn how to use knowledge and technology to improve the world.</p>
+        <p>In my free time I enjoy reading, cooking, and being outdoors. My interests include urbanism, philosophy, and design.</p>
+        <img src="roof_goose.jpeg" alt="Roof goose" width="400"></img>
+    </div>
+    <div id="projects" class="tab-content">
+        <h2>Projects</h2>
+        <h3><a href="https://github.com/slifland/Dirt">
+            dirt</a></h3>
+        <h3><a href="https://github.com/BntM/GameOfLife">
+            Conway's Game of Life</a></h3>
+    </div>
+    <div id="bookshelf" class="tab-content">
+        <h2>Bookshelf</h2>
+        <h3>Books I enjoyed</h3>
+        <ul>
+          <li>The Power Broker: Robert Caro</li>
+          <li>East of Eden: John Steinbeck</li>
+          <li>Crime and Punishment: Fyodor Dostoevsky</li>
+          <li>The Death and Life of Great American Cities: Jane Jacobs</li>
+          <li>The Martian: Andy Weir</li>
+          <li>The Hitchhiker's Guide to the Galaxy: Douglas Adams</li>
+          <li>On Writing Well: William Zinsser</li>
+          <li>Sidhartha: Herman Hesse</li>
+          <li>The Handmaid's Tale: Margaret Atwood</li>
+          <li>Walden: Henry David Thoreau</li>
+          <li>The Stranger: Albert Camus</li>
+        </ul>
+    </div>
+    <div id="contact" class="tab-content">
+        <h2>Contact</h2>
+        <p>Email: binitm@protonmail.com</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            var pages = document.querySelectorAll('.tab-content');
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            var selectedPage = document.getElementById(pageId);
+            selectedPage.classList.add('active');
+        }
+
+        // Default to showing Page 1
+        showPage('about');
+    </script>
+
+</body>
+</html>
